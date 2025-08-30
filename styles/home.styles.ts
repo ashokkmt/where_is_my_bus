@@ -1,103 +1,95 @@
 import { StyleSheet } from "react-native";
-import { COLORS } from "@/utils/theme";
 
 export const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: COLORS.stackBg
+        backgroundColor: "#e9ecef",
+        paddingTop: 10,
     },
 
     headerWrapper: {
-        backgroundColor: COLORS.homeHeaderTitle,
-        flex: 1,
+        backgroundColor: "#0860add7",
         flexDirection: "row",
         justifyContent: "space-between",
         alignItems: "center",
-        paddingHorizontal: 8,
-        marginHorizontal: 3,
-        marginTop: 5,
-        maxHeight: 50,
-        borderRadius: 11,
-        
+        paddingHorizontal: 12,
+        marginHorizontal: 8,
+        marginBottom: 10,
+        height: 50,
+        borderRadius: 12,
     },
-
     headerText: {
-        fontSize: 25,
-        fontWeight: "800",
-        color:COLORS.headerText
-        
+        fontSize: 20,
+        fontWeight: "700",
+        color: "white",
     },
 
     stationWrapper: {
-        marginTop: 10,
-        backgroundColor: COLORS.homeHeader,
-        paddingHorizontal: 8,
-        marginHorizontal: 3,
-        height:300,
-        position:"relative",
-        alignItems:"center"
-
-    },  
-
-    inputWrapper: {
-        flex:1,
-        // backgroundColor:"blue",
-        paddingTop:30,
-        gap:40,
-        display:"flex",
-        width:"95%",
-        paddingRight:10
+        backgroundColor: "white",
+        marginHorizontal: 12,
+        padding: 16,
+        borderRadius: 12,
     },
 
-    inputBoxWrapper: {
-        display:'flex',
-        flexDirection:"row",
-        position:"relative",
-        alignItems:"center",
-        width:"90%",
-        gap:14,
-        borderRadius:10,
-        borderWidth:2
+    rowWrapper: {
+        flexDirection: "row",
+        marginBottom: 16,
     },
 
-    inputBox: {
-        width:"100%",
-        // backgroundColor:"red",
-        height:50
-    },
 
-    buttonWrapper: {
-        height: 48,
-        backgroundColor: COLORS.stationButton,
-        borderRadius:16,
-        width:"100%",
-        position:"absolute",
-        bottom:10,
-    
-    },
-
-    butttonText: {
-        fontSize: 30,
-        color:"#ffff"
-
-    },
-
-    buttonTextWrapper: {
+    inputColumn: {
         flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
     },
 
-    line: {
-        borderWidth:1,
-    } ,
+    inputRow: {
+        borderRadius: 8,
+        paddingVertical: 12,
+        paddingHorizontal: 10,
+        borderWidth: 1,
+        borderColor: "#e0e0e0",
+        marginBottom: 8,
+        display : 'flex',
+        flexDirection : 'row',
+        alignItems : 'center',
+        gap : 2
+    },
 
     input: {
-        paddingLeft:10,
-        fontSize:20,
-        paddingTop:10
-    }
+        fontSize: 16,
+        color: "black",
+        width : '100%'
+    },
 
+    swapWrapper: {
+        display : 'flex',
+        flexDirection: "row",
+        alignItems: "center",
+        marginVertical: 6,
+        gap : 4
+    },
 
+    divider: {
+        flex: 1,
+        height: 1,
+        backgroundColor: "#ccc",
+    },
 
-})
+    swapButton: {
+        backgroundColor: "#e3f2fd",
+        borderRadius: 20,
+        padding: 6,
+        marginLeft: 8,
+    },
+
+    findButton: {
+        backgroundColor: "#2e7d32",
+        paddingVertical: 14,
+        borderRadius: 12,
+        alignItems: "center",
+    },
+    findButtonText: {
+        color: "white",
+        fontSize: 18,
+        fontWeight: "600",
+    },
+});
