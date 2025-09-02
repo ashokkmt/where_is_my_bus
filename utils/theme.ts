@@ -1,7 +1,10 @@
 export const COLORS = {
-    homeHeader:"#e7e6e6ff",
-    homeHeaderTitle:"#e7e6e6ff",
-    stackBg:"#ced4da",
-    stationButton:"#023e8a",
-    headerText:"#495057"
+
+    blue:"#0860add7",
+    green:"#2e7d32",
+    white:"#FFFCFB",
+    background:"#e9ecef",
+    black:"black",
+    border:"#e0e0e0",
+
 }

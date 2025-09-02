@@ -1,14 +1,15 @@
+import { COLORS } from "@/utils/theme";
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "#e9ecef",
+        backgroundColor: COLORS.background,
         paddingTop: 10,
     },
 
     headerWrapper: {
-        backgroundColor: "#0860add7",
+        backgroundColor: COLORS.blue,
         flexDirection: "row",
         justifyContent: "space-between",
         alignItems: "center",
@@ -21,11 +22,11 @@ export const styles = StyleSheet.create({
     headerText: {
         fontSize: 20,
         fontWeight: "700",
-        color: "white",
+        color: COLORS.white,
     },
 
     stationWrapper: {
-        backgroundColor: "white",
+        backgroundColor: COLORS.white,
         marginHorizontal: 12,
         padding: 16,
         borderRadius: 12,
@@ -56,7 +57,7 @@ export const styles = StyleSheet.create({
 
     input: {
         fontSize: 16,
-        color: "black",
+        color: COLORS.black,
         width : '100%'
     },
 
@@ -82,13 +83,13 @@ export const styles = StyleSheet.create({
     },
 
     findButton: {
-        backgroundColor: "#2e7d32",
+        backgroundColor: COLORS.green,
         paddingVertical: 14,
         borderRadius: 12,
         alignItems: "center",
     },
     findButtonText: {
-        color: "white",
+        color: COLORS.white,
         fontSize: 18,
         fontWeight: "600",
     },

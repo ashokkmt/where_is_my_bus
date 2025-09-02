@@ -1,8 +1,11 @@
 import { styles } from "@/styles/home.styles";
 import { View, Text, TouchableOpacity, TextInput } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
+import { useRouter } from "expo-router";
+
 
 const Index = () => {
+    const router = useRouter();
     return (
         <View style={styles.container}>
             <View style={styles.headerWrapper}>
@@ -19,10 +22,13 @@ const Index = () => {
 
             <View style={styles.stationWrapper}>
                 <View style={styles.rowWrapper}>
-
                     <View style={styles.inputColumn}>
                         <View style={styles.inputRow}>
-                            <Ionicons name="ellipse-outline" size={20} color="black" />
+                            <Ionicons
+                                name="ellipse-outline"
+                                size={20}
+                                color="black"
+                            />
                             <TextInput
                                 style={styles.input}
                                 placeholder="From Station"
@@ -31,15 +37,27 @@ const Index = () => {
                         </View>
 
                         <View style={styles.swapWrapper}>
-                            <Ionicons name="ellipsis-vertical" size={18} color="gray" />
+                            <Ionicons
+                                name="ellipsis-vertical"
+                                size={18}
+                                color="gray"
+                            />
                             <View style={styles.divider} />
                             <TouchableOpacity style={styles.swapButton}>
-                                <Ionicons name="swap-vertical" size={22} color="#1565C0" />
+                                <Ionicons
+                                    name="swap-vertical"
+                                    size={22}
+                                    color="#1565C0"
+                                />
                             </TouchableOpacity>
                         </View>
 
                         <View style={styles.inputRow}>
-                            <Ionicons name="location-outline" size={22} color="black" />
+                            <Ionicons
+                                name="location-outline"
+                                size={22}
+                                color="black"
+                            />
                             <TextInput
                                 style={styles.input}
                                 placeholder="To Station"
@@ -49,7 +67,10 @@ const Index = () => {
                     </View>
                 </View>
 
-                <TouchableOpacity style={styles.findButton}>
+                <TouchableOpacity
+                    onPress={() => router.push("/(route)")}
+                    style={styles.findButton}
+                >
                     <Text style={styles.findButtonText}>Find Train</Text>
                 </TouchableOpacity>
             </View>
