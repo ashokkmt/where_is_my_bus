@@ -1,33 +1,74 @@
 import { COLORS } from "@/utils/theme";
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import {
+    View,
+    Text,
+    StyleSheet,
+    TouchableOpacity,
+    Animated,
+    Pressable,
+} from "react-native";
+import { useRef, useEffect } from "react";
+import { BusCardProps } from "@/app/types";
 
-const BusCard = () => {
+const BusCard = ({
+    index,
+    busNo,
+    routeName,
+    startTime,
+    endTime,
+    est,
+}: BusCardProps) => {
+    const AnimatedTouchable = Animated.createAnimatedComponent(Pressable);
+    const opacity = useRef(new Animated.Value(0)).current;
+    const translateY = useRef(new Animated.Value(20)).current;
+
+    useEffect(() => {
+        const timeout = setTimeout(() => {
+            Animated.parallel([
+                Animated.timing(opacity, {
+                    toValue: 1,
+                    duration: 400,
+                    useNativeDriver: true,
+                }),
+                Animated.timing(translateY, {
+                    toValue: 0,
+                    duration: 400,
+                    useNativeDriver: true,
+                }),
+            ]).start();
+        }, index * 150);
+
+        return () => clearTimeout(timeout);
+    }, []);
     return (
-        <TouchableOpacity style={styles.container}>
-            <View style={styles.busCarWrapper}>
-
-                <View style={styles.firstWrapper}>
-                    <View style={styles.numberTextWrapper}>
-                        <Text style={{ fontSize: 16, fontWeight: "700" }}>
-                            1239
-                        </Text>
+        <AnimatedTouchable
+            style={[styles.container, { opacity, transform: [{ translateY }] }]}
+        >
+            <TouchableOpacity>
+                <View style={styles.busCarWrapper}>
+                    <View style={styles.firstWrapper}>
+                        <View style={styles.numberTextWrapper}>
+                            <Text style={{ fontSize: 16, fontWeight: "700" }}>
+                                {busNo}
+                            </Text>
+                        </View>
+                        <View>
+                            <Text style={{ fontSize: 22, fontWeight: "400" }}>
+                                {routeName}
+                            </Text>
+                        </View>
                     </View>
-                    <View>
-                        <Text style={{ fontSize: 22, fontWeight: "400" }}>
-                            Route of bus
-                        </Text>
+
+                    <View style={styles.secondWrapper}>
+                        <Text>{startTime}</Text>
+                        <Text>................</Text>
+                        <Text>{est}</Text>
+                        <Text>................</Text>
+                        <Text>{endTime}</Text>
                     </View>
                 </View>
-
-                <View style={styles.secondWrapper}>
-                    <Text>3:55 PM</Text>
-                    <Text>................</Text>
-                    <Text>7 hrs 18 mins</Text>
-                    <Text>................</Text>
-                    <Text>11:13 PM</Text>
-                </View>
-            </View>
-        </TouchableOpacity>
+            </TouchableOpacity>
+        </AnimatedTouchable>
     );
 };
 
@@ -57,16 +98,11 @@ const styles = StyleSheet.create({
         borderLeftColor: "#eee",
     },
 
-    busCarWrapper:{
-    
-       
-        paddingVertical:10,
- 
-        paddingHorizontal:15,
-        gap:25
-    
+    busCarWrapper: {
+        paddingVertical: 10,
 
-        
+        paddingHorizontal: 15,
+        gap: 25,
     },
     firstWrapper: {
         display: "flex",
@@ -87,6 +123,5 @@ const styles = StyleSheet.create({
 
     secondWrapper: {
         flexDirection: "row",
-       
     },
 });
